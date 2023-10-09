@@ -1,0 +1,23 @@
+https://symbolblog.com/developer-guides/chatting-with-peers-for-fun-and-profit/
+
+pip install symbol-sdk-python
+
+openssl genpkey -algorithm ed25519 -outform PEM -out ca.key.pem
+
+git clone https://github.com/symbol/symbol-node-configurator.git
+
+python symbol-node-configurator/certtool.py --working cert --name-ca "my cool CA" --name-node "my cool node name" --ca ca.key.pem
+
+cat cert/node.crt.pem cert/ca.crt.pem > cert/node.full.crt.pem
+
+
+
+symbol-node-configuratorがSymbolSDKに対応していないので、certtool.pyのimportをSymbolSDK用に変更
+from symbolchain.Network import NetworkLocator
+from symbolchain.PrivateKeyStorage import PrivateKeyStorage
+from symbolchain.symbol.KeyPair import KeyPair
+from symbolchain.symbol.Network import Network
+
+Windowsではパスに￥が入るので、￥をエスケープするよう置換
+def prepare_ca_config(ca_pem_path, ca_cn):
+    ca_pem_path_esc = str(ca_pem_path).replace("\\", "\\\\")
