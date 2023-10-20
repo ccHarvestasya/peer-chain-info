@@ -27,7 +27,7 @@ openssl genpkey -algorithm ed25519 -outform PEM -out ca.key.pem
 ## 証明書の生成
 
 ```
-python ../../symbol-node-configurator/certtool.py --working cert --name-ca "my cool CA" --name-node "my cool node name" --ca ca.key.pem
+python ../symbol-node-configurator/certtool.py --working cert --name-ca "my cool CA" --name-node "my cool node name" --ca ca.key.pem
 cat cert/node.crt.pem cert/ca.crt.pem > cert/node.full.crt.pem
 ```
 
