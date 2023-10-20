@@ -34,12 +34,12 @@ cat cert/node.crt.pem cert/ca.crt.pem > cert/node.full.crt.pem
 # 実行
 
 ```
-python main.py dhealth03.harvestasya.com
+python main.py launch.practicalcatapult.com
 ```
 
 ## 通信ポート変更されている場合
 
-第二引数にポート番号を指定
+引数にポート番号を指定
 
 ```
 python main.py 03.symbol-node.com 7913
