@@ -6,7 +6,7 @@ from pathlib import Path
 from symbolchain.BufferReader import BufferReader
 from symbolchain.BufferWriter import BufferWriter
 
-CERTIFICATE_DIRECTORY = os.getcwd() + "\cert"
+CERTIFICATE_DIRECTORY = os.getcwd() + "/cert"
 
 
 class ChainStatistics:
